@@ -18,11 +18,27 @@ class ListaSE:
             nuevo_nodo.siguiente = self.cabeza
             self.cabeza = nuevo_nodo
             
+    def AgregarFinal(self,valor):
+        if self.cabeza is None:
+            nuevo_nodo = Nodo(valor)
+            self.cabeza= nuevo_nodo
+        
+        else:
+            current = self.cabeza
+            while current.siguiente is not None:
+                current = current.siguiente
+                nuevo_nodo = Nodo(valor)
+                current.siguiente = nuevo_nodo
+    
+    
+            
 # Fin de la clase Lista
 
 
 ListaSimple = ListaSE()
 ListaSimple.AgregarInicio(5)
+
+ListaSimple.AgregarInicio(9)
 print(ListaSimple.cabeza.data)
-ListaSimple.AgregarInicio(8)
+ListaSimple.AgregarFinal(8)
 print(ListaSimple.cabeza.data)
