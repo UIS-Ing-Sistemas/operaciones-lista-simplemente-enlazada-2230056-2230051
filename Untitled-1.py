@@ -30,12 +30,34 @@ class ListaSE:
                 current = current.siguiente
             current.siguiente = nuevo_nodo  # Mover esta línea fuera del ciclo while
     
+    def EliminarInicio(self):
+        if self.cabeza is None:
+            print("Lista vacía. Ningún elemento puede ser eliminado")
+        
+        else:
+            node=self.cabeza
+            self.cabeza= self.cabeza.siguiente
+            del node
+    
+    def EliminarFinal(self):
+        if self.cabeza is None:
+            print("Lista vacía. Ningún elemento puede ser eliminado")
+        
+        else:
+            current = self.cabeza
+            previos= None
+            while current.siguiente is not None:
+                previous= current
+                current=current.siguiente
+            previous.siguiente = None
+            del current
+    
     def ImprimirLista(self):
         actual = self.cabeza
         while actual is not None:
             print(actual.data, end=" ")
             actual = actual.siguiente
-    
+
    
 
 # Crear una nueva lista enlazada
@@ -50,4 +72,9 @@ miLista.AgregarFinal(40)
 miLista.AgregarFinal(30)
 
 # Imprimir la lista
+
+
+miLista.EliminarInicio()
+miLista.EliminarFinal()
+
 miLista.ImprimirLista()
