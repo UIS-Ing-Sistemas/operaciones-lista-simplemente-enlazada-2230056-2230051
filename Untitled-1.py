@@ -58,7 +58,24 @@ class ListaSE:
             print(actual.data, end=" ")
             actual = actual.siguiente
 
-   
+   def buscarElemento(self, nombreProducto):
+        actual = self.cabeza
+        while actual:
+            if actual.data == nombreProducto:
+                return True
+            actual = actual.siguiente
+        return False
+
+    def contarElemento(self):
+        contador = 0
+        actual = self.cabeza
+        while actual:
+            contador += 1
+            actual = actual.siguiente
+        return contador
+
+    def ListaVacia(self):
+        return self.cabeza is None
 
 # Crear una nueva lista enlazada
 miLista = ListaSE()
